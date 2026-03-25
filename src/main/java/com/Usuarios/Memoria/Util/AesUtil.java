@@ -5,8 +5,11 @@ import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import org.springframework.stereotype.Component;
 
 
+
+@Component
 public class AesUtil {
  
     private static final String SECRET_KEY = "MyS3cur3K3y12345678901234567890AB";

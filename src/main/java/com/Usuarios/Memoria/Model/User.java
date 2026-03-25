@@ -5,18 +5,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class User {
 
     private UUID id;
+    
+    
+    @NotBlank(message = "El correo es obligatorio")
     private String email;
+    @NotBlank(message = "el usuario es obligatorio")
     private String name;
+    @Pattern(regexp = "^(\\+\\d{1,3}\\s)?[\\d\\s]{10,14}$",
+            message = "El telefono no tiene un formato valido")
     private String phone;
 
+    @Size(min = 8, message = "la contraseña debe tener al menos 8 caracteres")
     @JsonIgnore
     private String password;
 
+    
+    @Pattern(regexp = "^[A-ZÑ&]{4}\\d{6}[A-Z0-9]{3}$",
+        message = "El RFC no tiene un formato válido"
+    )
     @JsonProperty("tax_id")
     private String taxId;
+    
+    
     @JsonProperty("created_at")
     private String createdAt;
 
