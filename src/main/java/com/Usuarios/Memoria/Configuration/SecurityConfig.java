@@ -45,18 +45,16 @@ public class SecurityConfig {
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-    
-    
+
     @Bean
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config ) throws Exception{
-    return config.getAuthenticationManager();
+            AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
     }
 
-    
     @Bean
-    public PasswordEncoder passwordEncoder(){
-    return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
-    
+
 }
