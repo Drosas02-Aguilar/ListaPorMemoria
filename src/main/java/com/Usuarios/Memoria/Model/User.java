@@ -12,8 +12,7 @@ import jakarta.validation.constraints.Size;
 public class User {
 
     private UUID id;
-    
-    
+
     @NotBlank(message = "El correo es obligatorio")
     private String email;
     @NotBlank(message = "el usuario es obligatorio")
@@ -23,17 +22,15 @@ public class User {
     private String phone;
 
     @Size(min = 8, message = "la contraseña debe tener al menos 8 caracteres")
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    
     @Pattern(regexp = "^[A-ZÑ&]{4}\\d{6}[A-Z0-9]{3}$",
-        message = "El RFC no tiene un formato válido"
+            message = "El RFC no tiene un formato válido"
     )
     @JsonProperty("tax_id")
     private String taxId;
-    
-    
+
     @JsonProperty("created_at")
     private String createdAt;
 

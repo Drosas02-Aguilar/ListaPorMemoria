@@ -20,7 +20,7 @@ public class JwtFilter extends OncePerRequestFilter {
     private JwtUtil JwtUtil;
 
     private static final String HEADER = "Authorization";
-    private static final String PREFIX = "Bearer";
+    private static final String PREFIX = "Bearer ";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -37,23 +37,16 @@ public class JwtFilter extends OncePerRequestFilter {
 
             auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-            
             SecurityContextHolder.getContext().setAuthentication(auth);
-            
+
         }
-            filterChain.doFilter(request, response);
+        filterChain.doFilter(request, response);
     }
 
     private String resolveToken(HttpServletRequest request) {
-
         String header = request.getHeader(HEADER);
-
         if (header != null && header.startsWith(PREFIX)) {
-
-            if (header != null && header.startsWith(PREFIX)) {
-                return header.substring(PREFIX.length());
-            }
-
+            return header.substring(PREFIX.length());
         }
         return null;
     }

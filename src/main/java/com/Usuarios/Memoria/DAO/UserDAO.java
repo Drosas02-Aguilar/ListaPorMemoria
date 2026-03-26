@@ -19,19 +19,7 @@ public class UserDAO {
     private AesUtil aesUtil;
 
     private final List<User> users = new ArrayList<>();
-
-    public List<User> findAll() {
-        return users;
-    }
-
-    public void save(User user) {
-        users.add(user);
-    }
-
-    public void delete(User user) {
-        users.remove(user);
-    }
-
+    
     private User buildUser(String email, String name, String phone,
             String rawPassword, String taxId) throws Exception {
 
@@ -69,5 +57,20 @@ public class UserDAO {
         }
 
     }
+    
+
+    public List<User> findAll() {
+        return users;
+    }
+
+    public void save(User user) {
+        users.add(user);
+    }
+
+    public void delete(User user) {
+        users.remove(user);
+    }
+
+    
 
 }

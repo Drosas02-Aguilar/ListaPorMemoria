@@ -9,7 +9,9 @@ import io.jsonwebtoken.security.Keys;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JwtUtil {
 
     public static final String SECRET = "MyJwtS3cr3tK3y1234567890123456789";

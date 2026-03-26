@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AesUtil {
  
-    private static final String SECRET_KEY = "MyS3cur3K3y12345678901234567890AB";
+    private static final String SECRET_KEY = "MyS3cur3K3y12345678901234567890A";
     private static final String INIT_VECTOR = "InitVector123456";
     private static final String ALGORITHM = "AES/CBC/PKCS5Padding";
     
@@ -30,7 +30,7 @@ public class AesUtil {
     
     public String decryp(String encryptedText) throws Exception{
     IvParameterSpec iv = new IvParameterSpec(INIT_VECTOR.getBytes("UTF-8"));
-    SecretKeySpec keySpec = new SecretKeySpec(SECRET_KEY.getBytes("UFT-8"), "AES");
+    SecretKeySpec keySpec = new SecretKeySpec(SECRET_KEY.getBytes("UTF-8"), "AES");
     
     Cipher cipher = Cipher.getInstance(ALGORITHM);
     cipher.init(Cipher.DECRYPT_MODE,keySpec, iv);
