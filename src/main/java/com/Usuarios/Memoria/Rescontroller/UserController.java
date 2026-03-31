@@ -1,4 +1,4 @@
-package com.Usuarios.Memoria.Controller;
+package com.Usuarios.Memoria.ResController;
 
 import com.Usuarios.Memoria.Model.ServiceResult;
 import com.Usuarios.Memoria.Model.User;
